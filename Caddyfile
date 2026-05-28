@@ -1,0 +1,18 @@
+{
+    on_demand_tls {
+        ask http://127.0.0.1:3000/api/caddy
+    }
+}
+
+geometry.axiseducation.one {
+    reverse_proxy 127.0.0.1:6001
+}
+
+:443 {
+    tls {
+        on_demand
+    }
+
+    reverse_proxy 127.0.0.1:3000
+    encode gzip
+}

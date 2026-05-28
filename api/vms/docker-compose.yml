@@ -1,0 +1,19 @@
+services:
+  vms:
+    build: .
+    container_name: axis-vms
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - VM_SERVICE_TOKEN=${VM_SERVICE_TOKEN:-dev-shared-secret}
+      - SESSION_MAX=${SESSION_MAX:-4}
+      - FRAME_FPS=${FRAME_FPS:-12}
+      - FRAME_QUALITY=${FRAME_QUALITY:-6}
+      - SCREEN_WIDTH=${SCREEN_WIDTH:-1280}
+      - SCREEN_HEIGHT=${SCREEN_HEIGHT:-720}
+    shm_size: "1gb"
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - seccomp:unconfined
