@@ -1,4 +1,5 @@
 # AXIS-V2
+#### thanks for 10 stars everyone! keep sharing
 
 Leaked source code, thanks 3dr!
 
